@@ -23,7 +23,27 @@ public class ModelProduct implements ModelProductInterface {
 	public String addProduct(Product product) {
 		// TODO Auto-generated method stub
 		this.productRepo.save(product);
-		return "Berhasil memasukan data";
+		return "Berhasil menambahkan product";
 	}
+
+	@Override
+	public List<Product> getProductByName(String name) {
+		// TODO Auto-generated method stub
+		return this.productRepo.findProductByName(name);
+	}
+
+	@Override
+	public Product getByIdProduct(String id) {
+		// TODO Auto-generated method stub
+		return this.productRepo.findById(Long.parseLong(id)).get();
+	}
+
+	@Override
+	public String deletePoroductById(String id) {
+		// TODO Auto-generated method stub
+		this.productRepo.deleteById(Long.parseLong(id));
+		return "Berhasil menghapus data";
+	}
+
 
 }
